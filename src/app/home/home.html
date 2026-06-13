@@ -1,0 +1,152 @@
+<div class="landing-page">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">✨ Welcome to ShopHub ✨</div>
+            <h1 class="hero-title">Your One-Stop<br><span class="gradient-text">Shopping Destination</span></h1>
+            <p class="hero-subtitle">Discover amazing products at unbeatable prices. Free shipping on orders over $50!
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Shop Now →</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Category Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Shop by Category</span>
+                <h2 class="section-title">Browse Our <span class="highlight">Collections</span></h2>
+                <p class="section-subtitle">Find exactly what you're looking for in our curated categories</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card" *ngFor="let category of categories" [style.background]="category.color">
+                    <div class="category-icon">{{category.icon}}</div>
+                    <h3 class="category-name">{{category.name}}</h3>
+                    <span class="category-count">Shop Now</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Best Sellers</span>
+                <h2 class="section-title">Featured <span class="highlight">Products</span></h2>
+                <p class="section-subtitle">Hand-picked just for you. Don't miss out on these deals!</p>
+            </div>
+            <div class="products-grid">
+                <div *ngFor="let product of featuredProducts" class="product-card">
+                    <div class="product-badge" [class.sale]="product.badge === 'Sale'"
+                        [class.hot]="product.badge === 'Hot'" [class.new]="product.badge === 'New'"
+                        [class.trending]="product.badge === 'Trending'" >
+                        {{ product.badge }}
+                    </div>
+                    <img [src]="product.image" [alt]="product.name" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <div class="product-rating">
+                            <span *ngFor="let star of [1,2,3,4,5]" class="star"
+                                [class.filled]="star <= product.rating">★</span>
+                            <span class="rating-count">({{ product.rating }})</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">${{ product.price }}</span>
+                            <span class="old-price">${{ product.oldPrice }}</span>
+                        </div>
+                        <button class="product-btn">Add to Cart 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo">
+        <div class="promo-content">
+            <div class="promo-text">
+                <span class="promo-badge">Limited Time Offer</span>
+                <h2 class="promo-title">Summer Sale <span class="gradient-text">Up to 50% Off</span></h2>
+                <p class="promo-subtitle">Use code: <strong class="promo-code">SUMMER50</strong> at checkout</p>
+                <button class="btn-primary">Grab the Deal →</button>
+            </div>
+            <div class="promo-timer">
+                <div class="timer-unit">
+                    <div class="timer-number">24</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-number">59</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-number">59</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Customer Love</span>
+                <h2 class="section-title">What Our <span class="highlight">Customers Say</span></h2>
+                <p class="section-subtitle">Join thousands of satisfied shoppers worldwide</p>
+            </div>
+            <div class="testimonials-grid">
+                <div *ngFor="let testimonial of testimonials" class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-comment">{{ testimonial.comment }}</p>
+                    <div class="testimonial-stars">
+                        <span *ngFor="let star of [1,2,3,4,5]" class="star filled">★</span>
+                    </div>
+                    <div class="testimonial-author">
+                        <img [src]="testimonial.image" [alt]="testimonial.name" class="author-image">
+                        <div>
+                            <div class="author-name">{{ testimonial.name }}</div>
+                            <div class="author-role">{{ testimonial.role }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <div class="newsletter-icon">📧</div>
+            <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+            <p class="newsletter-subtitle">Get exclusive offers, early access to sales, and weekly deals straight to
+                your inbox</p>
+            <form class="newsletter-form" (submit)="$event.preventDefault()">
+                <input type="email" placeholder="Enter your email address" class="newsletter-input">
+                <button type="submit" class="newsletter-btn">Subscribe →</button>
+            </form>
+            <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+</div>

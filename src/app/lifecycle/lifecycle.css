@@ -1,0 +1,180 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #1976d2;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #1976d2;
+    font-size: 1.3em;
+    border-bottom: 2px solid #1976d2;
+    padding-bottom: 8px;
+}
+
+.control-group {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.control-group label {
+    font-weight: bold;
+    min-width: 70px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #1565c0;
+    transform: translateY(-1px);
+}
+
+.counter {
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.clear-btn {
+    background-color: #dc3545;
+}
+
+.clear-btn:hover {
+    background-color: #c82333;
+}
+
+.value-box {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border-left: 3px solid #1976d2;
+}
+
+.log-card {
+    background: #2d3748;
+}
+
+.log-card h2 {
+    color: #ffc107;
+    border-bottom-color: #ffc107;
+}
+
+.log-container {
+    background: #1a202c;
+    border-radius: 4px;
+    padding: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    padding: 6px;
+    margin: 4px 0;
+    background: #2d3748;
+    color: #a0aec0;
+    border-left: 3px solid #4CAF50;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.log-entry:first-child {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.no-logs {
+    text-align: center;
+    color: #718096;
+    padding: 20px;
+}
+
+.reference {
+    background: #e3f2fd;
+}
+
+.hook-list {
+    display: grid;
+    gap: 10px;
+}
+
+.hook-item {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hook-name {
+    font-weight: bold;
+    color: #1976d2;
+    font-family: monospace;
+}
+
+.hook-desc {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Scrollbar */
+.log-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.log-container::-webkit-scrollbar-track {
+    background: #1a202c;
+}
+
+.log-container::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}

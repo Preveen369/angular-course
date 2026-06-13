@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <div class="example">
+        <h2>Interpolation</h2>
+        <p><strong>Use: </strong>Display data from component to template</p>
+        <p><strong>Direction: </strong>Component -> Template (one-way)</p>
+
+        <div class="demo">
+            <p>Course: {{courseName}}</p>
+            <p>Expected Students: {{studentCount}}</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h2>Property Binding</h2>
+        <p><strong>Use: </strong>Set HTML property/element dynamically</p>
+        <p><strong>Direction: </strong>Component -> Template (one-way)</p>
+
+        <div class="demo">
+            <button [disabled]="isButtonDisabled">{{buttonText}}</button>
+            <input type="text" [placeholder]="inputPlaceholder">
+        </div>
+    </div>
+
+
+    <!-- Property Binding to display Images in Angular -->
+    <div class="demo">
+        <!-- <img src="./assets/butterfly.jpeg" alt="a butterfly"> -->
+        <img [src]="imagePath" [alt]="imageAlt">
+        <img [src]="imageUrl" [alt]="imageAlt">
+    </div>
+
+
+    <!-- EVENT BINDING -->
+     <div class="example">
+        <h2>Event Binding</h2>
+        <p><strong>Use: </strong>Respond to user's actions (events)</p>
+        <p><strong>Direction: </strong>Template -> Component (one-way)</p>
+
+        <div class="demo">
+            <button (click)="handleClick()">Click Here</button>
+            <p>Status: {{clickStatus}}</p>
+        </div>
+    </div>
+
+    <!-- TWO WAY DATA BINDING EXAMPLE -->
+    <div class="example">
+        <h2>Two - Way Data Binding</h2>
+        <p><strong>Use: </strong>Synchronizes template with component data</p>
+        <p><strong>Direction: </strong>Component -> Template -> Component (two-way)</p>
+
+        <div class="demo">
+            <input type="text" placeholder="Enter the user name" [(ngModel)]="userName">
+            <p>Hello, {{userName || "Guest"}}</p>
+            <input type="email" placeholder="Enter the user email" [(ngModel)]="userEmail">
+            <p>Email-ID: {{userEmail}}</p>
+        </div>
+    </div>
+
+   <!-- SIMPLE COUNTER PROJECT -->
+    <div class="example counter">
+        <h2>Simple Counter</h2>
+
+        <div class="demo">
+            <h3>Counts {{counter}}</h3>
+            <button (click)="increment()" class="increment">Increment</button>
+            <button (click)="decrement()" class="decrement">Decrement</button>
+            <button (click)="resetCounter()" class="reset">Reset</button>
+        </div>
+    </div>
+
+</div>

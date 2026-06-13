@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Angular Lifecycle Hooks</h1>
+    <p class="subtitle">
+        Tracking component events in real-time
+    </p>
+
+    <div class="card">
+        <h2>Try these actions</h2>
+
+        <div class="control-group">
+            <label>Counter: </label>
+            <button (click)="decrementCounter()">-</button>
+            <span>{{counter}}</span>
+            <button (click)="incrementCounter()">+</button>
+        </div>
+
+        <div class="control-group">
+            <button (click)="clearLogs()">Clear Logs</button>
+        </div>
+
+        <div class="card log-card">
+            <h2>Lifecycle Hook Log</h2>
+            <div class="log-container">
+                <div class="log-entry" *ngFor="let log of logMessage">
+                    {{log}}
+                </div>
+                <div *ngIf="logMessage.length === 0" class="no-log"> 
+                    No log yet. Try the buttons above!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card reference">
+        <h2>Quick Reference</h2>
+        <div class="hook-list">
+            <div class="hook-item">
+                <span class="hook-name">constructor()</span>
+                <span class="hook-desc">First to run - Component created</span>
+            </div>
+            <div class="hook-item">
+                <span class="hook-name">ngOnInit()</span>
+                <span class="hook-desc">Runs once after Angular has initialized all the component's inputs</span>
+            </div>
+            <div class="hook-item">
+                <span class="hook-name">ngOnChanges()</span>
+                <span class="hook-desc">Runs everytime when @Input data changes</span>
+            </div>
+            <div class="hook-item">
+                <span class="hook-name">ngOnDestroy()</span>
+                <span class="hook-desc">Runs once before the component is destroyed</span>
+            </div>
+        </div>
+    </div>
+</div>

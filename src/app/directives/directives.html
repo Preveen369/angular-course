@@ -1,0 +1,127 @@
+<div class="container">
+    <h1>Angular Directive Simple Example</h1>
+
+    <!-- CONDITIONAL STATEMENTS @if SYNTAX -->
+    <div class="section">
+        <h2>New Conditional Statement Syntax</h2>
+
+        <button (click)="toggleLogin()">Toggle Login State</button>
+
+        @if (isLoggedIn) {
+        <div class="success-box">
+            <p>✅ Welcome back! You are logged in.</p>
+            <p>User Role: {{userRole}}</p>
+        </div>
+        } @else {
+        <div class="error-box">
+            <h2>❌ Please login to continue.</h2>
+        </div>
+        }
+
+        <!-- @if with multiple conditions -->
+        @if (userRole === "admin") {
+        <div class="admin-box">
+            Admin Access : you can delete and edit anything
+        </div>
+        } @else if (userRole === "editor") {
+        <div class="editor-box">
+            Editor Access: you can only edit
+        </div>
+        } @else {
+        <div class="viewer-box">
+            👀 Viewer Access: you can only view content 😎
+        </div>
+        }
+    </div>
+
+    <!-- CLASSICAL SYNTAX FOR CONDITIONAL STATEMENT -->
+    <div class="section">
+        <h2>ngIf - Classical Conditional Syntax</h2>
+
+        <button (click)="toggleLogin()">Toggle Login State</button>
+
+        <div *ngIf="isLoggedIn" class="success-box">
+            <p>✅ Welcome back! You are logged in.</p>
+            <p>User Role: {{userRole}}</p>
+        </div>
+
+        <div *ngIf="!isLoggedIn" class="error-box">
+            <h2>❌ Please login to continue.</h2>
+        </div>
+
+        <!-- *ngIf with multiple conditions -->
+        <div *ngIf="userRole === 'admin'" class="admin-box">
+            Admin Access : you can delete and edit anything
+        </div>
+
+        <div *ngIf="userRole === 'editor'" class="editor-box">
+            Editor Access: you can only edit
+        </div>
+
+        <div *ngIf="userRole !== 'admin' && userRole !== 'editor'" class="viewer-box">
+            👀 Viewer Access: you can only view content 😎
+        </div>
+
+    </div>
+
+
+    <!-- FOR LOOP DIRECTIVE USING NEW SYNTAX-->
+    <div class="section">
+        <h2>New Loop Syntax Example</h2>
+        <p><strong>Use: </strong>Loop through arrays and display items using the new syntax</p>
+
+        <button (click)="addProduct()">Add New Product</button>
+        <h3>Products List {{products.length}} items</h3>
+
+        @for (product of products; track product.id) {
+        <div class="product-card">
+            <span class="product-name">{{product.name}}</span>
+            <span class="product-price">{{product.price}}</span>
+            <span class="product-card">
+                @if (product.isStock) {
+                <span>✅ in stock</span>
+                } @else {
+                <span>❌ out of stock</span>
+                }
+            </span>
+            <button (click)="removeProduct(product.id)">Remove Product</button>
+        </div>
+        }
+
+        @empty {
+        <div class="error-box">
+            No products available: Click add new products to create new one.
+        </div>
+        }
+    </div>
+
+
+    <!-- DIRECTIVE FOR LOOP USING CLASSICAL SYNTAX -->
+    <div class="section">
+        <h2>*ngFor - Classical Loop Syntax Example</h2>
+        <p><strong>Use: </strong>Loop through arrays and display items using classical syntax</p>
+
+        <button (click)="addProduct()">Add New Product</button>
+        <h3>Products List {{products.length}} items</h3>
+
+        <div *ngFor="let product of products">
+            <div *ngIf="products.length>0" class="product-card">
+                <div class="product-info">
+                    <span class="product-name">{{product.name}}</span>
+                    <span class="product-price">{{product.price}}</span>
+                    <span class="product-stock">
+                        <span *ngIf="product.isStock">✅ in stock</span>
+                        <span *ngIf="!product.isStock">❌ out of stock</span>
+                    </span>
+                    <button (click)="removeProduct(product.id)">Remove Product</button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="products.length===0" class="error-box">
+            No products available: Click add new products to create new one.
+        </div>
+
+    </div>
+
+</div>
